@@ -44,8 +44,8 @@ func get_tokens() (string, string) {
 	return token, user
 }
 
-func notify(hostname chan string, token string, user string) {
-	message := fmt.Sprintf("%s has finished the operation.", <-hostname)
+func notify(hostname chan string, token string, user string, childcommand string) {
+	message := fmt.Sprintf("%s has finished the operation (%s).", <-hostname, childcommand)
 
 	postdata := url.Values{}
 	postdata.Add("token", token)
@@ -76,5 +76,5 @@ func main() {
 	childprocess.Stderr = os.Stderr
 	childprocess.Run()
 
-	notify(hostname, token, user)
+	notify(hostname, token, user, childcommand)
 }
