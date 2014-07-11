@@ -15,6 +15,6 @@ Top Tip: In order to set those environmental variables permanently add them to ~
 
 ## Usage
 
-pushfinish ./your_long_task your_parameters
+`pushfinish ./your_long_task your_parameters`
 
 It will automatically push a notification as soon as the application finishes.
